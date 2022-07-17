@@ -9,12 +9,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class NodeTest {
 
+    /*
+    Short note regarding actual interface
+
+    The creation of the actual interface of the methods is unnecessary, as all methods and objects are defined
+    and only used in a single class (Node class).
+     */
+
+    LinkedList<Node> linkedListTest;
     @BeforeEach
     void setup() {
-        LinkedList<Node> linkedListTest = new LinkedList();
-        Node headNode = new Node(4);
-        Node secondNode = new Node(1);
-        Node lastNode = new Node(9);
+        linkedListTest = new LinkedList<Node>();
     }
 
     @Test
@@ -29,24 +34,36 @@ class NodeTest {
         assertEquals("g, h, i", n.toString());
     }
 
-
     @Test
     void addOneNode() {
+        Node headNode = new Node("a");
+        Node secondNode = new Node("g", headNode);
+        Node lastNode = new Node("f", secondNode);
 
 
+        assertEquals("[f, g, a]", lastNode.addOneNode(linkedListTest, lastNode));
     }
-
-
 
     @Test
     void deleteHeadNode() {
         LinkedList<Node> linkedListTest = new LinkedList();
-        Node headNode = new Node(4);
-        Node secondNode = new Node(1);
-        Node lastNode = new Node(9);
+        Node headNode = new Node("f");
+        Node secondNode = new Node("g");
+        Node lastNode = new Node("a");
+        headNode.addOneNode(linkedListTest, headNode);
+        secondNode.addOneNode(linkedListTest, secondNode);
+        lastNode.addOneNode(linkedListTest, lastNode);
+        assertEquals("[g, a]", lastNode.deleteHeadNode(linkedListTest));
     }
 
     @Test
     void reverseNode() {
+        Node headNode = new Node("f");
+        Node secondNode = new Node("g");
+        Node lastNode = new Node("a");
+        headNode.addOneNode(linkedListTest, headNode);
+        secondNode.addOneNode(linkedListTest, secondNode);
+        lastNode.addOneNode(linkedListTest, lastNode);
+        assertEquals("[a, g, f]", lastNode.reverseNode(linkedListTest));
     }
 }
