@@ -106,4 +106,10 @@ public class TaxTime {
             return "You have high income. Your tax is: " + taxTotal;
         }
     }
+
+    Integer checkNegativeTaxTotal(int taxTotal) {
+        int endTaxTotal;
+        if (taxTotal >= 0) return taxTotal;
+        return endTaxTotal = 0;
+    }
 }

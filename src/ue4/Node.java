@@ -31,57 +31,6 @@ public class Node {
         return result;
     }
 
-    public String deleteNodeOne(Object data){
-
-        //convert the data to string
-        String stringData = data.toString();
-
-        //separate each element from
-        char[] arr = stringData.toCharArray();
-
-        //declare the linkedList
-        LinkedList<String> list = new LinkedList<String>();
-
-        //add each char in the linkedList
-        for(int a = 0; a < stringData.length() ; a++){
-            list.add(String.valueOf(arr[a]));
-        }
-
-        //remove the head from List
-        list.remove();
-
-        //return the rest of the list
-        return list.toString();
-    }
-
-
-    public void deleteNode(int position) {
-
-        // if linked list is empty
-        if (next == null) return;
-
-        Node temp = next;
-
-        // If head needs to be removed
-        if (position == 0) {
-            next = temp.next; // Change head
-            return;
-        }
-
-        // look for the previous node of the node that is going to be deleted
-        for (int i = 0; temp != null && i < position - 1; i++) {
-            temp = temp.next;
-        }
-
-        // If position is more than number of nodes
-        if (temp == null || temp.next == null) return;
-
-        // Store pointer to the next of node to be deleted
-        Node nextNodeToBeDeleted = temp.next.next;
-
-        temp.next = nextNodeToBeDeleted;
-
-    }
 
     public String addOneNode(LinkedList<Node> linkedLIst ,Node abc){
         linkedLIst.add(abc);
