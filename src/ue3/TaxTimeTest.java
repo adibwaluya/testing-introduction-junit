@@ -16,7 +16,7 @@ class TaxTimeTest {
     int mediumIncome;
     int highIncome;
     int minusTaxTotal;
-    //int normalTaxTotal;
+    int normalTaxTotal;
 
     @BeforeEach
     void setUp() {
@@ -26,6 +26,7 @@ class TaxTimeTest {
         lowIncome = 5000;
         mediumIncome = 25000;
         highIncome = 80000;
+        normalTaxTotal = 50000;
         minusTaxTotal = -200;
     }
 
@@ -46,6 +47,7 @@ class TaxTimeTest {
         //Test taxTotal HighIncome
         assertEquals("You have high income. Your tax is: 12100.0", taxTime.checkComputeTaxTotal(highIncome));
 
+        assertEquals(normalTaxTotal, taxTime.checkNegativeTaxTotal(normalTaxTotal));
         assertEquals(0, taxTime.checkNegativeTaxTotal(minusTaxTotal));
 
     }

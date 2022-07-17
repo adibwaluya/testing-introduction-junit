@@ -29,15 +29,14 @@ class NodeTest {
         assertEquals("g, h, i", n.toString());
     }
 
+
     @Test
     void addOneNode() {
-        LinkedList<Node> linkedListTest = new LinkedList();
-        Node headNode = new Node(4);
-        Node secondNode = new Node(1);
-        Node lastNode = new Node(9);
 
 
     }
+
+
 
     @Test
     void deleteHeadNode() {
